@@ -1,0 +1,79 @@
+header {
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    gap: 2em;
+}
+
+.brand {
+    display: flex;
+    width: 15%;
+    min-width: fit-content;
+}
+
+
+.logo-text {
+    font-family: 'Inter';
+    color: var(--text-heading);
+    font-size: 1.25rem;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.main-nav ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    gap: 2em;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav li {
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav a {
+    font-family: 'Inter';
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 5px 0px;
+}
+
+.main-nav a.active, .main-nav a:hover {
+    border-bottom: 2px solid var(--primary-accent)
+}
+
+.utility {
+    display: flex;
+    gap: 15px;
+    color: var(--text-main);
+    margin-left: auto;
+}
+
+.utility a {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.utility i {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 600px) {
+    .main-nav {
+        display: none;
+    }
+    nav.utility .profile-btn {
+        display: none;
+    }
+}
