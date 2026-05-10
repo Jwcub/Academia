@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from "./partials/header/header";
-import { Mobilenav } from "./partials/mobilenav/mobilenav";
+import { HeaderComponent } from "./header/header";
+import { Mobilenav } from "./mobilenav/mobilenav";
 
 @Component({
   selector: 'app-root',
