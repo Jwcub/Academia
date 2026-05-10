@@ -26,6 +26,8 @@
     align-items: center;
     padding-top: 10px;
     border-top: 2px solid transparent;
+    color: var(--text-main);
+    text-decoration: none;
 }
 
 .mobile-nav li a.active {

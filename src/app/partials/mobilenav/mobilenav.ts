@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from "@angular/router";
 
 @Component({
   selector: 'app-mobilenav',
-  imports: [],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './mobilenav.html',
   styleUrl: './mobilenav.css',
 })

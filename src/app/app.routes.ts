@@ -6,8 +6,8 @@ import { Profile } from './profile/profile';
 
 export const routes: Routes = [
     { path: "", component: Home },
-    { path: "/courses", component: Courses },
-    { path: "/program", component: Program },
-    { path: "/profile", component: Profile },
+    { path: "courses", component: Courses },
+    { path: "program", component: Program },
+    { path: "profile", component: Profile },
     { path: "**", redirectTo: "", pathMatch: "full" }
 ];

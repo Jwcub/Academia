@@ -63,6 +63,8 @@ header {
     display: flex;
     justify-content: center;
     cursor: pointer;
+    text-decoration: none;
+    color: var(--text-main);
 }
 
 .utility i {

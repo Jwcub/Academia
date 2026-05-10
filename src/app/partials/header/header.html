@@ -7,14 +7,14 @@
 
     <nav class="main-nav">
         <ul>
-          <li><a href="" class="active">Startsida</a></li>
-          <li><a href="">Kurser</a></li>
-          <li><a href="">Mitt ramschema</a></li>
+          <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Startsida</a></li>
+          <li><a routerLink="courses" routerLinkActive="active">Kurser</a></li>
+          <li><a routerLink="program" routerLinkActive="active">Mitt ramschema</a></li>
         </ul>
     </nav>
 
     <nav class="utility">
-        <a class="profile-btn"><i class="material-icons">person</i></a>
+        <a routerLink="profile" class="profile-btn"><i class="material-icons">person</i></a>
         <a class="search"><i class="material-icons">search</i></a>
     </nav>
 
