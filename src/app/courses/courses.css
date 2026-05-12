@@ -1,3 +1,12 @@
+.text {
+    padding: 30px 40px;
+}
+
+.tools {
+    display: flex;
+    justify-content: space-around;
+}
+
 .course-table {
     display: grid;
     grid-template-columns: 
@@ -19,7 +28,8 @@
     text-transform: uppercase;
     color: #737373;
     padding: 15px 25px;
-    background-color: #FAFAFA;
+    background-color: #eeeeee;
+    border-top: 1px solid #E5E5E5;
     border-bottom: 1px solid #E5E5E5;
 }
 
@@ -28,8 +38,8 @@
     grid-template-columns: subgrid;
     grid-column: 1 / -1;
     align-items: center;
-    padding: 15px 25px;
-    border-bottom: 1px solid #ccc;
+    padding: 20px 25px;
+    border-bottom: 1px solid var(--border-color);
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
 }
@@ -77,13 +87,17 @@
 }
 
 @media (max-width: 700px) {
+    .text {
+        padding: 30px 20px;
+    }
+
     .table-titles {
         display: none;
     }
 
     .course-table {
         display: block;
-        padding: 0;
+        padding: 0 20px;
     }
 
     .course-list {
