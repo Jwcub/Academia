@@ -120,19 +120,4 @@ button, .button {
 .wrapper {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 40px;
-}
-
-.container {
-    display: flex;
-    max-width: 1400px;
-    margin: 0 auto;
-    min-height: 80vh;
-}
-
-.content {
-  background: #f4f4f4;
-  border-left: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
-  padding: 30px 40px;
 }
