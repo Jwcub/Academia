@@ -2,29 +2,32 @@
 <p>Upptäck vårt breda utbildningsutbud med kurser i världsklass, framtagna för att forma framtidens ledare.</p>
 
 <section class="course-table">
-  <div class="table-titles">
+<div class="table-titles">
     <div>Kod</div>
     <div>Namn</div>
     <div>Poäng</div>
     <div>Ämne</div>
     <div>Alternativ</div>
-  </div>
+</div>
 
-  @for(course of courses(); track course.courseCode) {
-    <article class="course-list">
-        <div class="code-col"> {{ course.courseCode }}</div>
-        <div class="name-col"> {{ course.courseName }}</div>
-        <div class="credit-col"> {{ course.points }} HP</div>
-        <div class="subject-col"> {{ course.subject }} </div>
-        <div class="options-col">
-        <a href="{{ course.syllabus }}" title="Kursplan" target="_blank" class="syllabus" aria-label="kursplan"><i class="material-icons">menu_book</i></a>
-        <button class="add-course" title="Lägg till kurs i ramschema"><i class="material-icons">add</i></button>
-        </div>
-        <div class="summary-col">
-        <span>{{ course.points }} HP</span>
-        <span>{{ course.subject }}</span>
-        <a href="{{ course.syllabus }}">Kursplan</a>
-        </div>
-    </article>
-}
+    @for(course of courses(); track course.courseCode) {
+        <article class="course-list">
+            <div class="code-col"> {{ course.courseCode }}</div>
+            <div class="name-col"> {{ course.courseName }}</div>
+            <div class="credit-col"> {{ course.points }} HP</div>
+            <div class="subject-col"> {{ course.subject }} </div>
+            <div class="options-col">
+            <a href="{{ course.syllabus }}" title="Kursplan" target="_blank" class="syllabus" aria-label="kursplan"><i class="material-icons">menu_book</i></a>
+            <button class="add-course" title="Lägg till kurs i ramschema"><i class="material-icons">add</i></button>
+            </div>
+            <div class="summary-col">
+            <span>{{ course.points }} HP</span>
+            <span>{{ course.subject }}</span>
+            </div>
+        </article>
+    }@empty {
+    <p class="no-courses">Just nu finns inga kurser att visa. Försök igen senare!</p>
+  }
 </section>
+
+

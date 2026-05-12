@@ -11,7 +11,7 @@
   --font-family: 'Inter', sans-serif;
 }
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -36,12 +36,14 @@ h1 {
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: -0.02em;
+  margin-bottom: 0.5em;
 }
 
 h2 {
   font-size: 1.5rem; 
   font-weight: 600;
   letter-spacing: -0.01em;
+  margin-bottom: 0.3em;
 }
 
 h3 {
@@ -119,4 +121,18 @@ button, .button {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 40px;
+}
+
+.container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 80vh;
+}
+
+.content {
+  background: #f4f4f4;
+  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  padding: 30px 40px;
 }

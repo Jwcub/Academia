@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CourseService } from '../services/course.service';
 
 @Component({
@@ -7,7 +7,11 @@ import { CourseService } from '../services/course.service';
   templateUrl: './courses.html',
   styleUrl: './courses.css',
 })
+
 export class Courses {
   courseService = inject(CourseService);
   courses = this.courseService.getCourses();
+
+  searchQuery = signal<string>("");
 }
+
