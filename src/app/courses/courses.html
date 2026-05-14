@@ -1,50 +1,63 @@
-<div class="text">
-    <h1>Kurskatalog</h1>
-    <p>Upptäck vårt breda utbildningsutbud med kurser i världsklass, framtagna för att forma framtidens ledare.</p>
 
-    
+<h1>Kurskatalog</h1>
+<p>Upptäck vårt breda utbildningsutbud med kurser i världsklass, framtagna för att forma framtidens ledare.</p>
 
-    <!-- 
+
+<section class="course-catalogue">
+
     <div class="tools">
-        <label for="search-field">Sök:
-            <input type="text" id="search-field" name="search">
-        </label>
+        <div class="search-tool">
+            <label for="searchQuery">Filtrera kurser:</label>
+            <input type="text" id="searchQuery" (input)="searchQuery.set($event.target.value)">
+        </div>
 
-        <label for="subject">Ämne
-            <select id="subject" name="subject">
-                <option>Test</option>
+        <div class="subject-tool">
+            <label for="choose-subject">Välj ämne:</label>
+            <select id="choose-subject" (change)="onCategoryChange($event)"> 
+                @for(subject of subjectsList(); track subject) {
+                    <option [value]="subject">{{ subject }}</option>
+                }
             </select>
-        </label>
+        </div>
     </div>
-</div>
 
-<section class="course-table">
-<div class="table-titles">
-    <div>Kod</div>
-    <div>Namn</div>
-    <div>Poäng</div>
-    <div>Ämne</div>
-    <div>Alternativ</div>
-</div>
 
-    @for(course of courses(); track course.courseCode) {
-        <article class="course-list">
-            <div class="code-col"> {{ course.courseCode }}</div>
-            <div class="name-col"> {{ course.courseName }}</div>
-            <div class="credit-col"> {{ course.points }} HP</div>
-            <div class="subject-col"> {{ course.subject }} </div>
-            <div class="options-col">
-            <a href="{{ course.syllabus }}" title="Kursplan" target="_blank" class="syllabus" aria-label="kursplan"><i class="material-icons">menu_book</i></a>
-            <button class="add-course" title="Lägg till kurs i ramschema"><i class="material-icons">add</i></button>
-            </div>
-            <div class="summary-col">
-            <span>{{ course.points }} HP</span>
-            <span>{{ course.subject }}</span>
-            </div>
-        </article>
-    }@empty {
-    <p class="no-courses">Just nu finns inga kurser att visa. Försök igen senare!</p>
-  }
+    <div class="course-table">
+        <div class="table-titles">
+            <div><span>Kod</span></div>
+            <div><span>Namn</span></div>
+            <div>Poäng</div>
+            <div>Ämne</div>
+            <div>Alternativ</div>
+        </div>
+
+        @for (course of pagedCourses(); track course.courseCode) {
+            <article class="course-list">
+                <div class="code-col">{{ course.courseCode }}</div>
+                <div class="name-col">{{ course.courseName }}</div>
+                <div class="credit-col"> {{ course.points }} HP</div>
+                <div class="subject-col"> {{ course.subject }} </div>
+                <div class="options-col">
+                    <a href="{{ course.syllabus }}" title="Kursplan" target="_blank" class="syllabus" aria-label="kursplan"><i class="material-icons">menu_book</i></a>
+                
+                    <button class="add-course" title="Lägg till kurs i ramschema"><i class="material-icons">add</i></button>
+                </div>
+                <div class="summary-col">
+                <span>{{ course.points }} HP</span>
+                <span>{{ course.subject }}</span>
+                </div>
+            </article>
+        }@empty {
+        <p class="no-courses">Just nu finns inga kurser att visa. Försök igen senare!</p>
+    }
+    </div>
+
+    <mat-paginator
+        [length]="allCourses().length"
+        [pageSize]="pageSize()"
+        [pageIndex]="currentPage()"
+        [pageSizeOptions]="[10, 25, 50]"
+        (page)="handlePageEvent($event)"
+        aria-label="Välj sida">
+    </mat-paginator>
 </section>
--->
-

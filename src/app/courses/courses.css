@@ -1,20 +1,27 @@
-.text {
-    padding: 30px 40px;
+.tools {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px 0;
+
+    input, select {
+        padding: 8px 12px;
+    }
 }
 
-.tools {
+.search-tool, .subject-tool {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
 }
 
 .course-table {
     display: grid;
     grid-template-columns: 
-        100px 
-        minmax(150px, 1fr) 
-        100px
-        minmax(100px, 1fr) 
-        auto;
+        1fr
+        3fr
+        1fr
+        2fr
+        1fr;
     column-gap: 15px;
 }
 
@@ -27,7 +34,7 @@
     font-size: 0.8rem;
     text-transform: uppercase;
     color: #737373;
-    padding: 15px 25px;
+    padding: 15px 10px;
     background-color: #eeeeee;
     border-top: 1px solid #E5E5E5;
     border-bottom: 1px solid #E5E5E5;
@@ -38,15 +45,17 @@
     grid-template-columns: subgrid;
     grid-column: 1 / -1;
     align-items: center;
-    padding: 20px 25px;
     border-bottom: 1px solid var(--border-color);
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
+    padding: 15px 10px;
 }
 
 .name-col {
     font-weight: 600;
     font-size: 1rem;
+    hyphens: none;
+    overflow-wrap: anywhere;
 }
 
 .summary-col {
@@ -54,7 +63,8 @@
 }
 
 .subject-col {
-    hyphens: auto;
+    hyphens: none;
+    overflow-wrap: anywhere;
 }
 
 .options-col {
@@ -79,6 +89,7 @@
     border: 0;
     color: #fff;
     padding: 4px 6px;
+    margin: 0;
 }
 
 .no-courses {
@@ -87,8 +98,9 @@
 }
 
 @media (max-width: 700px) {
-    .text {
-        padding: 30px 20px;
+    .tools {
+        grid-template-columns: 1fr;
+        row-gap: 1em;
     }
 
     .table-titles {
@@ -97,7 +109,7 @@
 
     .course-table {
         display: block;
-        padding: 0 20px;
+        padding: 0;
     }
 
     .course-list {
