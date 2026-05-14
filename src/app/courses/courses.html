@@ -13,7 +13,7 @@
 
         <div class="subject-tool">
             <label for="choose-subject">Välj ämne:</label>
-            <select id="choose-subject" (change)="onCategoryChange($event)"> 
+            <select id="choose-subject" (change)="changeSubject($event)"> 
                 @for(subject of subjectsList(); track subject) {
                     <option [value]="subject">{{ subject }}</option>
                 }
@@ -21,13 +21,14 @@
         </div>
     </div>
 
+    <span>Antal kurser som matchar sökning: {{ countCourses() }}</span>
 
     <div class="course-table">
         <div class="table-titles">
-            <div><span>Kod</span></div>
-            <div><span>Namn</span></div>
-            <div>Poäng</div>
-            <div>Ämne</div>
+            <div (click)="sortBy.set('courseCode')">Kod @if(sortBy() === 'courseCode') { ↓ }</div>
+            <div (click)="sortBy.set('courseName')">Namn @if(sortBy() === 'courseName') { ↓ }</div>
+            <div (click)="sortBy.set('points')">Poäng @if(sortBy() === 'points') { ↓ }</div>
+            <div (click)="sortBy.set('subject')">Ämne @if(sortBy() === 'subject') { ↓ }</div>
             <div>Alternativ</div>
         </div>
 
@@ -40,7 +41,7 @@
                 <div class="options-col">
                     <a href="{{ course.syllabus }}" title="Kursplan" target="_blank" class="syllabus" aria-label="kursplan"><i class="material-icons">menu_book</i></a>
                 
-                    <button class="add-course" title="Lägg till kurs i ramschema"><i class="material-icons">add</i></button>
+                    <button (click)="addToProgram(course)" class="add-course" title="Lägg till kurs i ramschema"><i class="material-icons">add</i></button>
                 </div>
                 <div class="summary-col">
                 <span>{{ course.points }} HP</span>

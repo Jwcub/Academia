@@ -1,6 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { CourseService } from '../services/course.service';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { CourseModel } from '../models/course.model';
 
 @Component({
   selector: 'app-courses',
@@ -20,21 +21,26 @@ export class Courses {
     return uniqueSubjects
   });
 
-  // Filtrera kurser
-  selectedCategory = signal<string>("");
+  // Signaler
+  selectedSubject = signal<string>("");
   searchQuery = signal<string>("");
 
-  onCategoryChange(event: Event) {
+  sortBy = signal<string>("");
+  sortAscending = signal<boolean>(true);
+
+  // Välj ämne att sortera på
+  changeSubject(event: Event) {
     const element = event.target as HTMLSelectElement;
-    this.selectedCategory.set(element.value);
+    this.selectedSubject.set(element.value);
   }
 
+  // Filtrerade och sorterade kurser
   filteredCourses = computed(() => {
-    let courses = this.allCourses();
+    let courses = [...this.allCourses()];
 
     // Filtera på kategori
-    if (this.selectedCategory()) {
-      courses = courses.filter(course => course.subject === this.selectedCategory());
+    if (this.selectedSubject()) {
+      courses = courses.filter(course => course.subject === this.selectedSubject());
     }
 
     // Filtrera på sökfras
@@ -44,18 +50,23 @@ export class Courses {
       course.courseCode.toLowerCase().includes(this.searchQuery()));
     }
 
+    // Sortera i bokstavsordning
+    if(this.sortBy() === "courseCode") {
+      courses.sort((a, b) => a.courseCode.localeCompare(b.courseCode));
+    } if(this.sortBy() === "courseName") {
+      courses.sort((a, b) => a.courseName.localeCompare(b.courseName));
+    } if(this.sortBy() === "points") {
+      courses.sort((a, b) => a.points - b.points);
+    } if(this.sortBy() === "subject") {
+      courses.sort((a, b) => a.subject.localeCompare(b.subject));
+    }
+      
     return courses;
   });
 
-  SortOnCode() {
-    this.filteredCourses().sort((a, b) => b.courseCode.localeCompare(a.courseCode));
-  }
+  countCourses = computed(() => this.filteredCourses().length);
 
-
-
-
-
-
+  // Paginering
   handlePageEvent(e: PageEvent) {
     this.currentPage.set(e.pageIndex);
     this.pageSize.set(e.pageSize);
@@ -69,7 +80,13 @@ export class Courses {
     const end = start + this.pageSize();
     return this.filteredCourses().slice(start, end);
   });
+
+  // Lägg till kursen i ramschema
+  addToProgram(course: CourseModel) {
+    console.log(course);
+  }
 }
+
 
 
 
