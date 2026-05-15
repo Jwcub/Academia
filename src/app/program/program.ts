@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { SaveToScheduleService } from '../services/save-to-schedule.service';
 
 @Component({
   selector: 'app-program',
@@ -6,4 +7,12 @@ import { Component } from '@angular/core';
   templateUrl: './program.html',
   styleUrl: './program.css',
 })
-export class Program {}
+export class Program {
+
+  private savedToSchedule = inject(SaveToScheduleService);
+  savedCourses = this.savedToSchedule.getCourses();
+
+}
+
+
+
