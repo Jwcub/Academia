@@ -38,9 +38,9 @@ export class ScheduleService {
 
   // Radera kurs i ramschema
   deleteCourse(course:CourseModel) {
-    const storedCourses = this.savedCourses();
-    const courseIndex = storedCourses.findIndex(storedCourse => storedCourse.courseCode === course.courseCode);
-    delete storedCourses[courseIndex];
-    return storedCourses;
+    let storedCourses: CourseModel[] = this.savedCourses();
+    const courseIndex: number = storedCourses.findIndex(storedCourse => storedCourse.courseCode === course.courseCode);
+    storedCourses.splice(courseIndex, 1)
+    localStorage.setItem(this.storageKey, JSON.stringify(storedCourses));
   }
 }

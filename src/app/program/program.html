@@ -19,7 +19,7 @@
         <td>{{ course.points }}</td>
         <td>{{ course.subject }}</td>
         <td>{{ course.syllabus }}</td>
-        <td><button (click)="deleteCourse()">radera kurs</button></td>
+        <td><button (click)="deleteCourse(course)">radera kurs</button></td>
         </tr>
         } @empty {
         <td colspan="6">Du har inte lagt till några kurser</td>
