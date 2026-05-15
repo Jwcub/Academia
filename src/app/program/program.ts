@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { SaveToScheduleService } from '../services/save-to-schedule.service';
+import { ScheduleService } from '../services/schedule.service';
+import { CourseModel } from '../models/course.model';
 
 @Component({
   selector: 'app-program',
@@ -9,8 +10,12 @@ import { SaveToScheduleService } from '../services/save-to-schedule.service';
 })
 export class Program {
 
-  private savedToSchedule = inject(SaveToScheduleService);
-  savedCourses = this.savedToSchedule.getCourses();
+  private scheduleService = inject(ScheduleService);
+  savedCourses = this.scheduleService.getCourses();
+
+  deleteCourse(course:CourseModel) {
+    this.scheduleService.deleteCourse(course);
+  }
 
 }
 

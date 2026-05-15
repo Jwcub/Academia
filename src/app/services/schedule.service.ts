@@ -4,7 +4,7 @@ import { CourseModel } from '../models/course.model';
 @Injectable({
   providedIn: 'root',
 })
-export class SaveToScheduleService {
+export class ScheduleService {
   private storageKey: string = "saved_courses";
 
   savedCourses = signal<CourseModel[]>(this.loadFromStorage());
@@ -37,7 +37,10 @@ export class SaveToScheduleService {
   }
 
   // Radera kurs i ramschema
-  deleteCourse() {
-
+  deleteCourse(course:CourseModel) {
+    const storedCourses = this.savedCourses();
+    const courseIndex = storedCourses.findIndex(storedCourse => storedCourse.courseCode === course.courseCode);
+    delete storedCourses[courseIndex];
+    return storedCourses;
   }
 }
