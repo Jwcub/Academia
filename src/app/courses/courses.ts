@@ -2,6 +2,7 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { CourseService } from '../services/course.service';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { CourseModel } from '../models/course.model';
+import { SaveToScheduleService } from '../services/save-to-schedule.service';
 
 @Component({
   selector: 'app-courses',
@@ -82,8 +83,10 @@ export class Courses {
   });
 
   // Lägg till kursen i ramschema
+  private saveToSchedule = inject(SaveToScheduleService);
+
   addToProgram(course: CourseModel) {
-    console.log(course);
+     this.saveToSchedule.addCourse(course);
   }
 }
 

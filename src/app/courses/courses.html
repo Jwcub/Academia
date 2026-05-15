@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <span>Antal kurser som matchar sökning: {{ countCourses() }}</span>
+    <span style="font-size: 0.85rem; font-weight: 600;">Antal kurser som matchar din sökning: {{ countCourses() }}</span>
 
     <div class="course-table">
         <div class="table-titles">
@@ -49,7 +49,7 @@
                 </div>
             </article>
         }@empty {
-        <p class="no-courses">Just nu finns inga kurser att visa. Försök igen senare!</p>
+        <p class="no-courses">Inga kurser matchar din sökning.</p>
     }
     </div>
 
