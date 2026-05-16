@@ -14,6 +14,7 @@
         <div class="subject-tool">
             <label for="choose-subject">Välj ämne:</label>
             <select id="choose-subject" (change)="changeSubject($event)"> 
+                    <option value="allCourses">Alla kurser</option>
                 @for(subject of subjectsList(); track subject) {
                     <option [value]="subject">{{ subject }}</option>
                 }
@@ -21,7 +22,7 @@
         </div>
     </div>
 
-    <span style="font-size: 0.85rem; font-weight: 600;">Antal kurser som matchar din sökning: {{ countCourses() }}</span>
+    <span style="font-size: 0.85rem; font-weight: 600;">Visar {{ countFilteredCourses() }} av {{ countAllCourses() }} kurser</span>
 
     <div class="course-table">
         <div class="table-titles">

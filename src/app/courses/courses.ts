@@ -44,6 +44,11 @@ export class Courses {
       courses = courses.filter(course => course.subject === this.selectedSubject());
     }
 
+    // Visa alla kategorier
+    if(this.selectedSubject() === "allCourses") {
+      return this.allCourses()
+    }
+
     // Filtrera på sökfras
     if(this.searchQuery()) {
       courses = courses.filter((course) => 
@@ -65,7 +70,9 @@ export class Courses {
     return courses;
   });
 
-  countCourses = computed(() => this.filteredCourses().length);
+  // Räkna kurser
+  countAllCourses = computed(() => this.allCourses().length);
+  countFilteredCourses = computed(() => this.filteredCourses().length);
 
   // Paginering
   handlePageEvent(e: PageEvent) {
