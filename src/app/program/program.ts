@@ -17,6 +17,7 @@ export class Program {
     this.scheduleService.deleteCourse(course);
   }
 
+  points = this.scheduleService.pointsTotal;
 }
 
 

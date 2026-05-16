@@ -1,4 +1,4 @@
-import { Injectable, signal, Signal } from '@angular/core';
+import { computed, Injectable, signal, Signal } from '@angular/core';
 import { CourseModel } from '../models/course.model';
 
 @Injectable({
@@ -9,6 +9,10 @@ export class ScheduleService {
 
   savedCourses = signal<CourseModel[]>(this.loadFromStorage());
   errorMessage = signal<string | null>(null);
+  
+  public pointsTotal = computed(() => {
+    return this.savedCourses().reduce((sum, course) => sum + course.points, 0);
+  })
 
   private loadFromStorage(): CourseModel[] {
     const storedCourses = localStorage.getItem(this.storageKey);
@@ -36,11 +40,11 @@ export class ScheduleService {
     return this.savedCourses;
   }
 
-  // Radera kurs i ramschema
-  deleteCourse(course:CourseModel) {
-    let storedCourses: CourseModel[] = this.savedCourses();
-    const courseIndex: number = storedCourses.findIndex(storedCourse => storedCourse.courseCode === course.courseCode);
-    storedCourses.splice(courseIndex, 1)
-    localStorage.setItem(this.storageKey, JSON.stringify(storedCourses));
+  deleteCourse(course: CourseModel):void {
+    this.savedCourses.update(courses => 
+    courses.filter(storedCourse => storedCourse.courseCode !== course.courseCode)
+    );
+
+    localStorage.setItem(this.storageKey, JSON.stringify(this.savedCourses()));
   }
 }
