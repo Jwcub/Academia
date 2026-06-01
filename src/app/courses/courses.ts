@@ -3,10 +3,11 @@ import { CourseService } from '../services/course.service';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { CourseModel } from '../models/course.model';
 import { ScheduleService } from '../services/schedule.service';
+import { MatSnackBar, MatSnackBarModule, MatSnackBarRef, TextOnlySnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-courses',
-  imports: [MatPaginatorModule],
+  imports: [MatPaginatorModule, MatSnackBarModule],
   templateUrl: './courses.html',
   styleUrl: './courses.css',
 })
@@ -14,6 +15,7 @@ import { ScheduleService } from '../services/schedule.service';
 export class Courses {
   private courseService = inject(CourseService);
   allCourses = this.courseService.getCourses();
+  private snackBar = inject(MatSnackBar); 
 
   // Lista med ämnen
   subjectsList = computed(() => {
@@ -28,6 +30,8 @@ export class Courses {
 
   sortBy = signal<string>("");
   sortAscending = signal<boolean>(true);
+
+  errorMessage = signal("");
 
   // Välj ämne att sortera på
   changeSubject(event: Event) {
@@ -93,10 +97,10 @@ export class Courses {
   private scheduleService = inject(ScheduleService);
 
   addToProgram(course: CourseModel) {
-     this.scheduleService.addCourse(course);
+    try {
+      this.scheduleService.addCourse(course);
+    } catch(err) {
+        
+    }
   }
 }
-
-
-
-

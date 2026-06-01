@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./header/header";
 import { Mobilenav } from "./mobilenav/mobilenav";
 import { Sidebar } from "./sidebar/sidebar";
@@ -12,4 +12,6 @@ import { Sidebar } from "./sidebar/sidebar";
 })
 export class App {
   protected readonly title = signal('Academia');
+
+  constructor( public router: Router ) {}
 }

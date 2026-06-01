@@ -19,6 +19,11 @@
     border-right: 1px solid var(--border-color);
 }
 
+footer {
+    margin-bottom: 70px;
+    padding-bottom: 70px;
+}
+
 @media (max-width: 900px) {
     .sidebar {
         display: none;

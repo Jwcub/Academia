@@ -1,5 +1,6 @@
 import { computed, Injectable, signal, Signal } from '@angular/core';
 import { CourseModel } from '../models/course.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
@@ -26,8 +27,7 @@ export class ScheduleService {
 
     //Kontrollera att kursen inte finns i ramschemat
     if(containsCourse) {
-      this.errorMessage.set("Kursen finns redan i ditt ramschema");
-      return
+      throw new Error('Kursen finns redan i ditt ramschema');
     }
 
     const updatedList = [...currentCourses, newCourse];
