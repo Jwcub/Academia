@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ScheduleService } from '../services/schedule.service';
+import { ScheduleService } from '../../services/schedule.service';
 
 @Component({
   selector: 'app-sidebar',
