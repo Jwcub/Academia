@@ -3,7 +3,7 @@ import { CourseService } from '../services/course.service';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { CourseModel } from '../models/course.model';
 import { ScheduleService } from '../services/schedule.service';
-import { MatSnackBar, MatSnackBarModule, MatSnackBarRef, TextOnlySnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-courses',
@@ -15,7 +15,6 @@ import { MatSnackBar, MatSnackBarModule, MatSnackBarRef, TextOnlySnackBar } from
 export class Courses {
   private courseService = inject(CourseService);
   allCourses = this.courseService.getCourses();
-  private snackBar = inject(MatSnackBar); 
 
   // Lista med ämnen
   subjectsList = computed(() => {
@@ -93,14 +92,28 @@ export class Courses {
     return this.filteredCourses().slice(start, end);
   });
 
+  // Snackbar
+  constructor(private snackBar: MatSnackBar) {}
+
   // Lägg till kursen i ramschema
   private scheduleService = inject(ScheduleService);
 
   addToProgram(course: CourseModel) {
     try {
       this.scheduleService.addCourse(course);
+        this.snackBar.open('Kursen tillagd i ramschema','Stäng', {    
+          duration: 5000,    
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+          panelClass: 'custom-style',
+        })
     } catch(err) {
-        
+      this.snackBar.open('Kursen kunde inte läggas till','Stäng', {    
+        duration: 5000,    
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+        panelClass: 'custom-style',
+      })
     }
   }
 }

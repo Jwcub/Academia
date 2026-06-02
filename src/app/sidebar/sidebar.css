@@ -1,0 +1,12 @@
+.saved-courses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.saved-course {
+    background-color: white;
+    padding: 8px 16px;
+    border-left: 3px solid var(--primary-accent);
+    font-size: 0.9rem;
+}

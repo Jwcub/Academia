@@ -1,1 +1,18 @@
-<p>sidebar works!</p>
+@if(savedCourses().length < 1) {
+    <h2>Lägg till kurser</h2>
+    <p>Bla bla bla...</p>
+} @else {
+    <section class="saved-courses-list">
+        <h2>Tillagda kurser</h2>
+        <p>Sammanlagda högskolepoäng: <strong>{{ points() }} HP</strong></p>
+        @for (course of savedCourses(); track course.courseCode) {
+            <article class="saved-course">
+                <span>{{ course.courseCode }}: </span>
+
+                <span style="font-weight: 500;">{{ course.courseName }}</span>
+            </article>
+        }
+        <button>Hantera kurser</button>
+     </section>
+
+}

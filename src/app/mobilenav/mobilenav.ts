@@ -7,4 +7,5 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
   templateUrl: './mobilenav.html',
   styleUrl: './mobilenav.css',
 })
-export class Mobilenav {}
+export class Mobilenav {
+}
