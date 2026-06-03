@@ -71,6 +71,13 @@ header {
     font-size: 1.5rem;
 }
 
+.tool-btn {
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+    color: var(--text-main);
+}
+
 @media (max-width: 600px) {
     .main-nav {
         display: none;

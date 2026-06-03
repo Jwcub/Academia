@@ -14,7 +14,11 @@
     </nav>
 
     <nav class="utility">
-        <a class="search"><i class="material-icons">search</i></a>
+        
+        <button class="tool-btn" mat-icon-button><mat-icon>search</mat-icon></button>
+        <button class="tool-btn" mat-icon-button (click)="themeService.toggleTheme()">
+        <mat-icon>{{ themeService.theme() === 'dark' ? 'light_mode' : 'dark_mode' }}</mat-icon>
+      </button>
     </nav>
 
   </div>
