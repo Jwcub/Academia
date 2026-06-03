@@ -33,11 +33,11 @@
     font-weight: 700;
     font-size: 0.8rem;
     text-transform: uppercase;
-    color: #737373;
+    color: light-dark(#737373, #c8cacd);
     padding: 15px 10px;
-    background-color: #eeeeee;
-    border-top: 1px solid #E5E5E5;
-    border-bottom: 1px solid #E5E5E5;
+    background-color: light-dark(#eeeeee, #26262C);
+    border-top: 1px solid light-dark(#E5E5E5,#848491);
+    border-bottom: 1px solid light-dark(#E5E5E5,#848491);
 }
 
 .course-list {
@@ -85,7 +85,7 @@
 .add-course {
     cursor: pointer;
     font-size: 0.5rem;
-    background-color: #9C3F00;
+    background-color: var(--primary-accent);
     border: 0;
     color: #fff;
     padding: 4px 6px;

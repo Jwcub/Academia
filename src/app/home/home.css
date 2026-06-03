@@ -5,36 +5,40 @@
 .text-block {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 1em;
     width: 100%;
-    background-color: var(--secondary-accent);
+    background-color: #ebeaea;
     background-image: url('/images/qcircel.svg');
     background-position: right top;
     background-repeat: no-repeat;
-    background-size: auto 75%;
+    background-size: auto 65%;
     padding: 40px 30px;
     margin: 20px 0;
     border-radius: 12px;
-    
-}
-
-.btn1 {
-    width: 40%;
-    color: #251913;
-    padding: 1.5em 2em;
-    border-radius: 6px;
-    background-color: var(--primary-accent);
-}
-
-.btn2 {
-    width: 40%;
-    color: #251913;
-    padding: 1.5em 2em;
-    border-radius: 6px;
-    background-color: var(--secondary-accent);
 }
 
 .text-block h3, .text-block p {
     margin: 0;
-    color: #41403c;
+    color: var(--text-main);
+}
+
+.btn1, .btn2 { 
+    width: 40%;
+    color: #251913;
+    padding: 1.5em 2em;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.btn1:hover, .btn2:hover {
+    filter: brightness(1.1);
+}
+
+.btn1 {
+    background-color: var(--primary-accent);
+}
+
+.btn2 {
+    background-color: var(--secondary-accent);
 }
