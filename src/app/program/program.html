@@ -13,7 +13,9 @@
                 <div class="textbox"><i class="material-icons syllabys-icon">menu_book</i><a href="{{ course.points }}">Kursplan</a></div>
             </div>
             <div class="delete-course">
-                X
+                <button (click)="deleteCourse(course)" class="delete-btn" matIconButton aria-label="Radera kurs" matTooltip="Radera kurs från ramschema">
+                    <mat-icon>close</mat-icon>
+                </button>
             </div>
         </article>
     }
