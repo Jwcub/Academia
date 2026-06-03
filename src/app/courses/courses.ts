@@ -4,10 +4,12 @@ import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { CourseModel } from '../models/course.model';
 import { ScheduleService } from '../services/schedule.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatIcon } from '@angular/material/icon';
+import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-courses',
-  imports: [MatPaginatorModule, MatSnackBarModule],
+  imports: [MatPaginatorModule, MatSnackBarModule, MatIcon, MatTooltip],
   templateUrl: './courses.html',
   styleUrl: './courses.css',
 })

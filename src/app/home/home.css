@@ -1,6 +1,40 @@
+.start{
+    margin-bottom: 50px;
+}
+
 .text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     width: 100%;
-    background-color: orange;
+    background-color: var(--secondary-accent);
+    background-image: url('/images/qcircel.svg');
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: auto 75%;
     padding: 40px 30px;
     margin: 20px 0;
+    border-radius: 12px;
+    
+}
+
+.btn1 {
+    width: 40%;
+    color: #251913;
+    padding: 1.5em 2em;
+    border-radius: 6px;
+    background-color: var(--primary-accent);
+}
+
+.btn2 {
+    width: 40%;
+    color: #251913;
+    padding: 1.5em 2em;
+    border-radius: 6px;
+    background-color: var(--secondary-accent);
+}
+
+.text-block h3, .text-block p {
+    margin: 0;
+    color: #41403c;
 }

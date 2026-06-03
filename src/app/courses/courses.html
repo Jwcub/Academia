@@ -40,9 +40,12 @@
                 <div class="credit-col"> {{ course.points }} HP</div>
                 <div class="subject-col"> {{ course.subject }} </div>
                 <div class="options-col">
-                    <a href="{{ course.syllabus }}" title="Kursplan" target="_blank" class="syllabus" aria-label="kursplan"><i class="material-icons">menu_book</i></a>
-                
-                    <button (click)="addToProgram(course)" class="add-course" title="Lägg till kurs i ramschema"><i class="material-icons">add</i></button>
+                    <a href="{{ course.syllabus }}" target="_blank" class="syllabus" aria-label="kursplan" matTooltip="Läs kursplan">
+                        <mat-icon>menu_book</mat-icon>
+                    </a>
+                    <button (click)="addToProgram(course)" class="add-course" matIconButton aria-label="Lägg till kurs" matTooltip="Lägg till kurs i ramschema">
+                        <mat-icon>add</mat-icon>
+                    </button>
                 </div>
                 <div class="summary-col">
                 <span>{{ course.points }} HP</span>
