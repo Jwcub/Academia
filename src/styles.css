@@ -66,6 +66,16 @@ p {
   font-size: 1rem;
 }
 
+a {
+  color: var(--secondary-accent);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 ul, ol {
   margin-bottom: 1.5rem;
   padding-left: 1.25rem;
