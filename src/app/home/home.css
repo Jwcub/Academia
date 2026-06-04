@@ -1,5 +1,11 @@
 .start{
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+}
+
+.frontpic {
+    height: auto;
+    margin-bottom: 30px;
+    border-radius: 12px;
 }
 
 .text-block {
@@ -19,7 +25,7 @@
 
 .text-block h3, .text-block p {
     margin: 0;
-    color: var(--text-main);
+    color: #251913;
 }
 
 .btn1, .btn2 { 

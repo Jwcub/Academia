@@ -7,12 +7,11 @@
         <p>Sammanlagda högskolepoäng: <strong>{{ points() }} HP</strong></p>
         @for (course of savedCourses(); track course.courseCode) {
             <article class="saved-course">
-                <span>{{ course.courseCode }}: </span>
-
+                <h3>{{ course.courseCode }} </h3>
                 <span style="font-weight: 500;">{{ course.courseName }}</span>
             </article>
         }
-        <button>Hantera kurser</button>
+        <button routerLink="/program">Hantera kurser</button>
      </section>
 
 }

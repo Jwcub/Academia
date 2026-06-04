@@ -70,7 +70,10 @@ p {
 ul, ol {
   margin-bottom: 1.5rem;
   padding-left: 1.25rem;
-  
+}
+
+ol { 
+    list-style-type: decimal-leading-zero;
 }
 
 li {
@@ -85,7 +88,18 @@ li::marker {
 img {
   max-width: 100%;
   display: block;
-  border: 1px solid var(--border-color);
+}
+
+img.left {
+  float: left;
+}
+
+img.right {
+  float: right;
+}
+
+img.center {
+  margin: auto;
 }
 
 button, .button {
