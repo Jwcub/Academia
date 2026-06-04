@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { ScheduleService } from '../../services/schedule.service';
 import { RouterLink } from '@angular/router';
+import { AlternativeSidebar } from '../alternative-sidebar/alternative-sidebar';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [RouterLink],
+  imports: [RouterLink, AlternativeSidebar],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.css',
 })

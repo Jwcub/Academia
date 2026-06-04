@@ -80,6 +80,7 @@
     text-decoration: none;
     color: #737373;
     padding: 4px 6px;
+    border-radius: 3px;
 }
 
 .add-course {
@@ -87,6 +88,7 @@
     font-size: 0.5rem;
     background-color: var(--primary-accent);
     border: 0;
+    border-radius: 3px;
     color: #fff;
     padding: 4px 6px;
     margin: 0;

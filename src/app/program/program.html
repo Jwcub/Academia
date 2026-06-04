@@ -1,8 +1,15 @@
 <h1>Mitt ramschema</h1>
 
-{{ points() }} HP av max 45 HP
-
 <section class="program-courselist">
+
+    @if(savedCourses().length < 1) {
+        Du har inte lagt till några kurser i ramschemat än. Klicka på knappen nedan för att komma igång.
+    }
+    
+    @if(savedCourses().length > 0) {
+        {{ points() }} HP av max 45 HP
+    }
+
     @for (course of savedCourses(); track course.courseCode) {
         <article class="program-course">
             <div class="course-details">
@@ -10,7 +17,7 @@
                 <div class="course-name"><h3>{{ course.courseName }}</h3></div>
                 <div class="textbox">{{ course.subject }} </div>
                 <div class="textbox">{{ course.points }} HP</div>
-                <div class="textbox"><i class="material-icons syllabys-icon">menu_book</i><a href="{{ course.points }}">Kursplan</a></div>
+                <div class="textbox"><i class="material-icons syllabys-icon">menu_book</i><a href="{{ course.points }}" matTooltip="Läs kursplan">Kursplan</a></div>
             </div>
             <div class="delete-course">
                 <button (click)="deleteCourse(course)" class="delete-btn" matIconButton aria-label="Radera kurs" matTooltip="Radera kurs från ramschema">
@@ -19,4 +26,6 @@
             </div>
         </article>
     }
+
+    <button class="add-courses" routerLink="/courses">Lägg till kurser</button>
 </section>
