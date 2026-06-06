@@ -9,7 +9,6 @@ export class ScheduleService {
   private storageKey: string = "saved_courses";
 
   savedCourses = signal<CourseModel[]>(this.loadFromStorage());
-  errorMessage = signal<string | null>(null);
   
   public pointsTotal = computed(() => {
     return this.savedCourses().reduce((sum, course) => sum + course.points, 0);
@@ -17,7 +16,12 @@ export class ScheduleService {
 
   private loadFromStorage(): CourseModel[] {
     const storedCourses = localStorage.getItem(this.storageKey);
-    return storedCourses ? JSON.parse(storedCourses) : [];
+
+    if(storedCourses) {
+      return JSON.parse(storedCourses);
+    } else {
+      return [];
+    }
   }
 
   // Lägg till kurs i ramschema
@@ -40,11 +44,9 @@ export class ScheduleService {
     return this.savedCourses;
   }
 
+  // Radera kurser från ramschema
   deleteCourse(course: CourseModel):void {
-    this.savedCourses.update(courses => 
-    courses.filter(storedCourse => storedCourse.courseCode !== course.courseCode)
-    );
-
+    this.savedCourses.update(courses => courses.filter(storedCourse => storedCourse.courseCode !== course.courseCode));
     localStorage.setItem(this.storageKey, JSON.stringify(this.savedCourses()));
   }
 }

@@ -13,12 +13,7 @@ export class CourseService {
 
   // Hämta kurser
   getCourses(): Signal<CourseModel[]> {
-  const courses$ = this.http.get<CourseModel[]>(this.url).pipe(
-    catchError(err => {
-      console.error('Ett fel uppstod vid hämtning:', err);
-      return of([]); 
-    })
-  );
+  const courses$ = this.http.get<CourseModel[]>(this.url);
   return toSignal(courses$, { initialValue: [] });
 }
 }

@@ -1,42 +1,51 @@
-import { DOCUMENT, effect, inject, Injectable, signal } from '@angular/core';
+import { computed, DOCUMENT, effect, inject, Injectable, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
   private readonly document = inject(DOCUMENT);
+
+  // Signal för färgtema
   readonly theme = signal<'light' | 'dark'>(this.getInitialTheme());
 
+  // Uppdatera färgschema i LocalStorage och DOM
   constructor() {
     effect(() => {
       const currentTheme = this.theme();
 
+      // Sätt färgtema för webblatsen
       this.document.documentElement.style.colorScheme = currentTheme;
 
-      if(typeof window !== 'undefined') {
-        try {
-          localStorage.setItem('Academia-theme', currentTheme); 
-        } catch(err) {
-          console.log("Kunde inte spara tema");
-        }
+      // Om webbplatsen visas i webbläsare, spara tema i LocalStorage
+      if(this.isBrowser()) {
+        localStorage.setItem('Academia-theme', currentTheme)
       }
-    })
+    });
   }
 
-  private getInitialTheme(): 'light' | 'dark' {
-    if (typeof window === 'undefined') return 'light';
-
-    try {
-      const savedTheme = localStorage.getItem('Academia-theme') as 'light' | 'dark';
-      if(savedTheme) return savedTheme;
-    } catch(err){
-      return 'light';
-    }
-
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark').matches; return prefersDark? 'dark' : 'light';
-  }
-
+  // Växla mellan teman
   toggleTheme() {
-    this.theme.update((current) => (current === 'light' ? 'dark' : 'light'))
+    this.theme.update(current => current === 'light' ? 'dark': 'light');
+  }
+
+  // Kontrollera användarens preferenser
+  private getInitialTheme(): 'light' | 'dark' {
+    if(!this.isBrowser()) return 'light';
+
+    // Kontrollera om det finns sparat tema
+    const savedTheme = localStorage.getItem('Academia-theme');
+    if(savedTheme === 'light' || savedTheme === 'dark') {
+      return savedTheme;
+    }
+    
+    // Om inget sparat tema finns, kontollera systeminställningar
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark').matches;
+    return prefersDark ? 'dark' : 'light';
+  }
+
+  // Kontroller om webbplatsen visas i webbläsare
+  private isBrowser(): boolean {
+  return typeof window !== 'undefined';
   }
 }
