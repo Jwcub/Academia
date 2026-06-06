@@ -87,3 +87,15 @@
     filter: brightness(1.1);
     cursor: pointer;
 }
+
+.syllabys-icon {
+    font-size: 1rem; 
+    height: auto; 
+    width: auto;
+}
+
+.textbox a {
+    display: inline-flex;
+    gap: 5px;
+    font-size: 0.7rem;
+}
