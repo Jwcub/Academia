@@ -37,9 +37,11 @@
     font-size: 0.9rem;
 }
 
-.course-name {
-    flex: 70%;
-} 
+.code-name {
+    flex: 100%;
+    display: flex;
+    gap: 10px;
+}
 
 .textbox {
     display: flex;

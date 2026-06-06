@@ -110,7 +110,7 @@ export class Courses {
           panelClass: 'custom-style',
         })
     } catch(err) {
-      this.snackBar.open('Kursen kunde inte läggas till','Stäng', {    
+      this.snackBar.open('' + err,'Stäng', {    
         duration: 5000,    
         horizontalPosition: 'center',
         verticalPosition: 'bottom',

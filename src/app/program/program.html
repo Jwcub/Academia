@@ -13,8 +13,10 @@
     @for (course of savedCourses(); track course.courseCode) {
         <article class="program-course">
             <div class="course-details">
-                <div class="course-code">{{ course.courseCode }}</div>
-                <div class="course-name"><h3>{{ course.courseName }}</h3></div>
+                <div class="code-name">
+                    <div class="course-code">{{ course.courseCode }}</div>
+                    <div class="course-name"><h3>{{ course.courseName }}</h3></div>
+                </div>
                 <div class="textbox">{{ course.subject }} </div>
                 <div class="textbox">{{ course.points }} HP</div>
                 <div class="textbox">

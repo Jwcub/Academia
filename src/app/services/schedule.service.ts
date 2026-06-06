@@ -34,6 +34,12 @@ export class ScheduleService {
       throw new Error('Kursen finns redan i ditt ramschema');
     }
 
+    // Kontoller att den sammanlagda kurssumman inte översiger 45HP
+    if((this.pointsTotal() + newCourse.points)> 45) {
+      throw new Error('Du kan lägga till max 45HP i ditt ramschema');
+    }
+
+
     const updatedList = [...currentCourses, newCourse];
     localStorage.setItem(this.storageKey, JSON.stringify(updatedList));
     this.savedCourses.set(updatedList);
