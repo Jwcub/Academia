@@ -8,12 +8,15 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ScheduleService {
   private storageKey: string = "saved_courses";
 
+  // Sparade kurser
   savedCourses = signal<CourseModel[]>(this.loadFromStorage());
   
+  // Beräkna sammanlagda poäng för sparade kurser
   public pointsTotal = computed(() => {
     return this.savedCourses().reduce((sum, course) => sum + course.points, 0);
   })
 
+  // Hämta sparade kurser från LocalStorage
   private loadFromStorage(): CourseModel[] {
     const storedCourses = localStorage.getItem(this.storageKey);
 
@@ -38,7 +41,6 @@ export class ScheduleService {
     if((this.pointsTotal() + newCourse.points)> 45) {
       throw new Error('Du kan lägga till max 45HP i ditt ramschema');
     }
-
 
     const updatedList = [...currentCourses, newCourse];
     localStorage.setItem(this.storageKey, JSON.stringify(updatedList));

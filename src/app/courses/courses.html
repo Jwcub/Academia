@@ -2,9 +2,8 @@
 <h1>Kurskatalog</h1>
 <p>Upptäck vårt breda utbildningsutbud med kurser i världsklass, framtagna för att forma framtidens ledare.</p>
 
-
+<!-- Listning av kurser -->
 <section class="course-catalogue">
-
     <div class="tools">
         <div class="search-tool">
             <label for="searchQuery">Filtrera kurser:</label>
@@ -22,7 +21,7 @@
         </div>
     </div>
 
-    <span style="font-size: 0.85rem; font-weight: 600;">Visar {{ countFilteredCourses() }} av {{ countAllCourses() }} kurser</span>
+    <span class="bold-text">Visar {{ countFilteredCourses() }} av {{ countAllCourses() }} kurser</span>
 
     <div class="course-table">
         <div class="table-titles">

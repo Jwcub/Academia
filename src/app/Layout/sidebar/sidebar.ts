@@ -10,6 +10,8 @@ import { AlternativeSidebar } from '../alternative-sidebar/alternative-sidebar';
   styleUrl: './sidebar.css',
 })
 export class Sidebar {
+
+  // Inläsning av kurser i ramschema
   private scheduleService = inject(ScheduleService);
   savedCourses = this.scheduleService.getCourses();
 

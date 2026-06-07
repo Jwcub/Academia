@@ -12,14 +12,16 @@ import { RouterLink } from "@angular/router";
   styleUrl: './program.css',
 })
 export class Program {
-
+  // Inläsning av kurser sparade i ramschema
   private scheduleService = inject(ScheduleService);
   savedCourses = this.scheduleService.getCourses();
 
+  // Ta bort sparad kurs
   deleteCourse(course:CourseModel) {
     this.scheduleService.deleteCourse(course);
   }
 
+  // Sammanlagda poäng
   points = this.scheduleService.pointsTotal;
 }
 

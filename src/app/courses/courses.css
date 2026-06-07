@@ -14,6 +14,11 @@
     flex-direction: column;
 }
 
+.bold-text {
+    font-size: 0.85rem; 
+    font-weight: 600;
+}
+
 .course-table {
     display: grid;
     grid-template-columns: 
