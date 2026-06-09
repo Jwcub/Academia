@@ -2,7 +2,7 @@
 <h1>Kurskatalog</h1>
 <p>Upptäck vårt breda utbildningsutbud med kurser i världsklass, framtagna för att forma framtidens ledare.</p>
 
-<!-- Listning av kurser -->
+<!-- Filtrera kurser -->
 <section class="course-catalogue">
     <div class="tools">
         <div class="search-tool">
@@ -23,6 +23,7 @@
 
     <span class="bold-text">Visar {{ countFilteredCourses() }} av {{ countAllCourses() }} kurser</span>
 
+    <!-- Titlar och filtrering -->
     <div class="course-table">
         <div class="table-titles">
             <div (click)="sortBy.set('courseCode')">Kod @if(sortBy() === 'courseCode') { ↓ }</div>
@@ -32,6 +33,7 @@
             <div>Alternativ</div>
         </div>
 
+        <!-- Lista kurser -->
         @for (course of pagedCourses(); track course.courseCode) {
             <article class="course-list">
                 <div class="code-col">{{ course.courseCode }}</div>
@@ -56,6 +58,7 @@
     }
     </div>
 
+    <!-- Paginering -->
     <mat-paginator
         [length]="allCourses().length"
         [pageSize]="pageSize()"

@@ -1,8 +1,10 @@
 @if(savedCourses().length < 1) {
 
+    <!-- Om inga kurser finns i ramschemat, visa tips -->
     <app-alternative-sidebar></app-alternative-sidebar>
     
 } @else {
+    <!-- Om lagrade kurser, visa dem och sammanlaga poäng -->
     <section class="saved-courses-list">
         <h2>Tillagda kurser</h2>
         <p>Sammanlagda högskolepoäng: <strong>{{ points() }} HP</strong></p>

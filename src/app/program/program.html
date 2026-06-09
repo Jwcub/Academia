@@ -2,14 +2,17 @@
 
 <section class="program-courselist">
 
+    <!-- Om inga kurser i ramschemat -->
     @if(savedCourses().length < 1) {
         Du har inte lagt till några kurser i ramschemat än. Klicka på knappen nedan för att komma igång.
     }
     
+    <!-- Visa sammanlagda poäng om kurser finns lagrade -->
     @if(savedCourses().length > 0) {
         {{ points() }} HP av max 45 HP
     }
 
+    <!-- Lista sparade kurser -->
     @for (course of savedCourses(); track course.courseCode) {
         <article class="program-course">
             <div class="course-details">

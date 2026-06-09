@@ -15,5 +15,6 @@ export class Sidebar {
   private scheduleService = inject(ScheduleService);
   savedCourses = this.scheduleService.getCourses();
 
+  // Sammanlagd poäng
   points = this.scheduleService.pointsTotal
 }

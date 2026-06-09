@@ -1,10 +1,13 @@
+<!-- Sidhuvud -->
 <app-header></app-header>
 
 <div class="container">
+    <!-- Sidinnehåll -->
     <main class="content">
         <router-outlet />
     </main>
 
+    <!-- Om sidan = kurser visa sidofält, annars alternativt sidofält -->
     <div class="sidebar">
         @if(router.url === "/courses") {
             <app-sidebar></app-sidebar>
@@ -13,9 +16,11 @@
         }
     </div>
 </div>
-    
+
+<!-- Sidfot -->
 <app-footer></app-footer>
 
+<!-- Mobilmeny -->
 <app-mobilenav></app-mobilenav>
 
 
