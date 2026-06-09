@@ -45,6 +45,10 @@
     border-bottom: 1px solid light-dark(#E5E5E5,#848491);
 }
 
+.table-titles > div {
+    cursor: pointer;
+}
+
 .course-list {
     display: grid;
     grid-template-columns: subgrid;
