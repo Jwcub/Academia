@@ -1,6 +1,33 @@
 # Academia
+Detta projekt är en examinationsuppgift i kursen *Programmering i TypeScript* vid Mittuniversitet. Applikationen är skapad i Angular med fokus på programmeringsspråket TypeScript. 
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.7.
+## Grundläggande funktionalitet:
+- Applikationen är skapad med Angular och TypeScript.
+- Applikationen har minst två undersidor, en för att söka och visa information om kurser - och en som visar skapat ramschema.
+- Komponenter och routing används.
+- Fler än två services har skapats.
+- Kurser kan sortera efter kurskod, poäng och ämne.
+- Kurser kan filtreras utifrån kurskod och kursnamn.
+- Det går att välja kurser från ämne. 
+- Kurser kan läggas till i ramschema. 
+- Applikationen visar hur många resultat som finns i ett urval.
+- Ett ramschema går att skapa, det går inte att lägga till dublett av samma kurs.
+- Ramschemat lagras i LocalStorage utan sidomladdning.
+- Kurser kan raderas från ramschema.
+- Webbplatsens design är genomarbetad och responsiv. 
+- Koden har versionhanterats i GIT.
+- Applikationen och dess källkod finns tillgänglig publikt. 
+
+## Utökad funktionalitet:
+- Användaren kan välja mellan ljust och mörkt schema.
+- Paginering av kurser.
+- Sidfält som visar kurser i ramschemat och uppdateras utan omladdning.
+- Utökat sidor, med startsida.
+- Mobilmeny i egen komponent. 
+
+## Tillgänglig:
+Applikaitonens finns tillgänglig vid: 
+https://academiauni.netlify.app/ 
 
 ## Development server
 

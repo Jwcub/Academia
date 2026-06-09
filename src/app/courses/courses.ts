@@ -57,8 +57,8 @@ export class Courses {
     // Filtrera på sökfras
     if(this.searchQuery()) {
       courses = courses.filter((course) => 
-      course.courseName.toLowerCase().includes(this.searchQuery()) ||
-      course.courseCode.toLowerCase().includes(this.searchQuery()));
+      course.courseName.toLowerCase().includes(this.searchQuery().toLowerCase()) ||
+      course.courseCode.toLowerCase().includes(this.searchQuery().toLowerCase()));
     }
 
     // Sortera i bokstavsordning
