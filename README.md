@@ -26,7 +26,7 @@ Detta projekt är en examinationsuppgift i kursen *Programmering i TypeScript* v
 - Mobilmeny i egen komponent. 
 
 ## Tillgänglig:
-Applikaitonens finns tillgänglig vid: 
+Applikationen finns tillgänglig vid: 
 https://academiauni.netlify.app/ 
 
 ## Development server
